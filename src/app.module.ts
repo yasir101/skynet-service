@@ -4,6 +4,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
+import { InternetPackageModule } from './internet-package/internet-package.module';
+
 
 @Module({
   imports: [
@@ -15,7 +17,8 @@ import { ConfigModule } from '@nestjs/config';
       driver: ApolloDriver,
       autoSchemaFile: true,
     }),
-    CustomerModule
+    CustomerModule,
+    InternetPackageModule,
   ],
   controllers: [],
   providers: [],
