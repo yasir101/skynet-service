@@ -5,6 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
 import { InternetPackageModule } from './internet-package/internet-package.module';
+import { ConnectionTypeModule } from './connection-type/connection-type.module';
 
 
 @Module({
@@ -19,6 +20,7 @@ import { InternetPackageModule } from './internet-package/internet-package.modul
     }),
     CustomerModule,
     InternetPackageModule,
+    ConnectionTypeModule,
   ],
   controllers: [],
   providers: [],
