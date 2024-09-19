@@ -1,31 +1,40 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { InternetPackage, InternetPackageDocument } from './schemas/internetPackage.schema';
+import { InternetPackage} from './schemas/internetPackage.schema';
 import { Model } from 'mongoose';
-import { CreateInternetPackage } from './dto/create-internet-package.dto';
-import { InternetPackageModel } from './models/internetPackage.model'
+import { CreateInternetPackageDto } from './dto/create-internet-package.dto';
+import { UpdateInternetPackageDto } from './dto/update-internet-package.dto';
 
 @Injectable()
 export class InternetPackageService {
   constructor(
     @InjectModel(InternetPackage.name)
-    private internetPackageModel: Model<InternetPackageDocument>
+    private internetPackageModel: Model<InternetPackage>
   ) {}
 
-  async createInternetPackage(createInternetPackage: CreateInternetPackage): Promise<InternetPackageModel> {
-    const newPackage = new this.internetPackageModel(createInternetPackage)
-    return newPackage.save() as any as Promise<InternetPackageModel>;
+  async create(createInternetPackageDto: CreateInternetPackageDto): Promise<InternetPackage> {
+    const newPackage = new this.internetPackageModel(createInternetPackageDto)
+    return newPackage.save();
   }
 
-  async getAllPackages(): Promise<InternetPackageModel[]> {
-    return this.internetPackageModel.find().exec() as any as Promise<InternetPackageModel[]>
+  async findAll(): Promise<InternetPackage[]> {
+    return this.internetPackageModel.find().exec();
   }
 
-  async getPackageById(id: string): Promise<InternetPackageModel> {
-    return this.internetPackageModel.findById(id).exec() as any as Promise<InternetPackageModel>    
+  async findOne(id: string): Promise<InternetPackage> {
+    return this.internetPackageModel.findById(id).exec();
   }
 
-  async getPackageByName(name: string): Promise<InternetPackageModel> {
-    return this.internetPackageModel.findOne({ name }).exec() as any as Promise<InternetPackageModel>
+  async findByName(name: string): Promise<InternetPackage> {
+    return this.internetPackageModel.findOne({ name }).exec();
   }
+  
+  async update(id: string, updateInternetPackageDto: UpdateInternetPackageDto): Promise<InternetPackage> {
+    return this.internetPackageModel.findByIdAndUpdate(id, updateInternetPackageDto, {new: true}).exec();
+  }
+
+  async remove(id: string): Promise<InternetPackage> {
+    return this.internetPackageModel.findByIdAndDelete(id);
+  }
+
 }

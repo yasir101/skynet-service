@@ -1,9 +1,9 @@
 import { Field, Float, InputType } from "@nestjs/graphql";
 import { IsEnum, IsNotEmpty, IsNumber, IsString, Min } from "class-validator";
-import { PackageType } from "../package-type.enum";
+import { PackageType } from "../schemas/internetPackage.schema";
 
 @InputType()
-export class CreateInternetPackage {
+export class CreateInternetPackageDto {
   @Field()
   @IsNotEmpty()
   @IsString()
