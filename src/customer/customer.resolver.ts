@@ -1,29 +1,29 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CustomerService } from './customer.service';
-import { CreateCustomerInput } from './dto/create-customer.dto';
-import { CustomerModel } from './models/customer.model';
+import { Customer } from './schemas/customer.schema';
+import { CreateCustomerDto } from './dto/create-customer.dto';
 
-@Resolver(() => CustomerModel)
+@Resolver(() => Customer)
 export class CustomerResolver {
   constructor(private readonly customerService: CustomerService) {}
 
-  @Mutation(() => CustomerModel)
-  async createCustomer(@Args('createCustomerInput') createCustomerInput: CreateCustomerInput) {
-    return this.customerService.create(createCustomerInput);
+  @Mutation(() => Customer)
+  async createCustomer(@Args('createCustomerDto') createCustomerDto: CreateCustomerDto) {
+    return this.customerService.create(createCustomerDto);
   }
   
 
-  @Query(() => [CustomerModel], {name: 'customers'})
+  @Query(() => [Customer], {name: 'customers'})
   async findAllCustomers() {
     return this.customerService.findAll()
   }
 
-  @Query(() => CustomerModel, {name: 'customer'})
+  @Query(() => Customer, {name: 'customer'})
   async findOne(@Args('id', {type: ()=> String}) id: string) {
     return this.customerService.findOne(id);
   }
 
-  @Query(() => CustomerModel, {name: 'customerByCNIC'})
+  @Query(() => Customer, {name: 'customerByCNIC'})
   async findByCNIC(@Args('cnic', { type: () => String }) cnic: string) {
     return this.customerService.findByCNIC(cnic);
   }

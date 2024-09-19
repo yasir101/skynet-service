@@ -3,7 +3,7 @@ import { IsNotEmpty, IsOptional, IsString } from "class-validator";
 
 
 @InputType()
-export class CreateCustomerInput{
+export class CreateCustomerDto{
   @Field()
   @IsNotEmpty()
   @IsString()
