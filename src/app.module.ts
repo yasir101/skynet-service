@@ -6,6 +6,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
 import { InternetPackageModule } from './internet-package/internet-package.module';
 import { ConnectionTypeModule } from './connection-type/connection-type.module';
+import { EquipmentModule } from './equipment/equipment.module';
 
 
 @Module({
@@ -21,6 +22,7 @@ import { ConnectionTypeModule } from './connection-type/connection-type.module';
     CustomerModule,
     InternetPackageModule,
     ConnectionTypeModule,
+    EquipmentModule,
   ],
   controllers: [],
   providers: [],
