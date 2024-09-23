@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { InternetPackageModule } from './internet-package/internet-package.module';
 import { ConnectionTypeModule } from './connection-type/connection-type.module';
 import { EquipmentModule } from './equipment/equipment.module';
+import { CustomerEquipmentModule } from './customer-equipment/customer-equipment.module';
 
 
 @Module({
@@ -23,6 +24,7 @@ import { EquipmentModule } from './equipment/equipment.module';
     InternetPackageModule,
     ConnectionTypeModule,
     EquipmentModule,
+    CustomerEquipmentModule,
   ],
   controllers: [],
   providers: [],
