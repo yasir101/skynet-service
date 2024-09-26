@@ -1,6 +1,6 @@
-import { Field, Float, InputType } from "@nestjs/graphql";
-import { IsEnum, IsNotEmpty, IsNumber, IsString, Min } from "class-validator";
-import { PackageType } from "../schemas/internetPackage.schema";
+import { Field, Float, InputType } from '@nestjs/graphql';
+import { IsEnum, IsNotEmpty, IsNumber, IsString, Min } from 'class-validator';
+import { PackageType } from '../schemas/internetPackage.schema';
 
 @InputType()
 export class CreateInternetPackageDto {
@@ -21,5 +21,5 @@ export class CreateInternetPackageDto {
 
   @Field(() => PackageType)
   @IsEnum(PackageType)
-  type: PackageType
+  type: PackageType;
 }

@@ -3,8 +3,8 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document, Types } from "mongoose";
 
 export enum PackageType {
-  SILVER = 'Silver',
-  GOLD = 'Gold',
+  SILVER = 'silver',
+  GOLD = 'gold',
 }
 
 registerEnumType(PackageType, {

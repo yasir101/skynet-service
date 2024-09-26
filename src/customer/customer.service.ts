@@ -11,8 +11,8 @@ export class CustomerService {
     private customerModel: Model<Customer>
   ) {}
 
-  async create(createCustomerInput: CreateCustomerDto): Promise<Customer> {
-    const newCustomer = new this.customerModel(CreateCustomerDto);
+  async create(createCustomerDto: CreateCustomerDto): Promise<Customer> {
+    const newCustomer = new this.customerModel(createCustomerDto);
     return newCustomer.save();
   }
 

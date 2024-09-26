@@ -8,6 +8,7 @@ import { InternetPackageModule } from './internet-package/internet-package.modul
 import { ConnectionTypeModule } from './connection-type/connection-type.module';
 import { EquipmentModule } from './equipment/equipment.module';
 import { CustomerEquipmentModule } from './customer-equipment/customer-equipment.module';
+import { SubscriptionModule } from './subscription/subscription.module';
 
 
 @Module({
@@ -25,6 +26,7 @@ import { CustomerEquipmentModule } from './customer-equipment/customer-equipment
     ConnectionTypeModule,
     EquipmentModule,
     CustomerEquipmentModule,
+    SubscriptionModule,
   ],
   controllers: [],
   providers: [],
